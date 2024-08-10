@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}My Bookings{% endblock %}
+
+{% block body %}
+<div class="row mt-5">
+    <div class="col-md-12">
+        <h1 class="mb-4"><i class="fa fa-calendar-alt"></i> My Bookings</h1>
+
+        <table class="table table-bordered table-striped table-hover">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Email</th>
+                    <th>Duration</th>
+                    <th>Total Price(Kshs)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.id }}</td>
+                    <td>{{ booking.date ? booking.date|date('Y-m-d') : '' }}</td>
+                    <td>{{ booking.time ? booking.time|date('H:i:s') : '' }}</td>
+                    <td>{{ booking.email }}</td>
+                    <td>{{ booking.duration }} hours</td>
+                    <td>{{ booking.TotalPrice }}</td>
+                    <td>
+                        <a href="{{ path('app_bookings_show', {'id': booking.id}) }}" class="btn btn-sm btn-info" title="View Booking">
+                            <i class="fa fa-eye"></i> Show
+                        </a>
+                        <a href="{{ path('app_bookings_receipt', {'id': booking.id}) }}" class="btn btn-sm btn-success" title="Download Receipt">
+                            <i class="fa fa-download"></i> Receipt
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7" class="text-center">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="{{ path('app_bookings_new') }}" class="btn btn-primary mt-4">
+            <i class="fa fa-plus"></i> Book Now
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,44 @@
+{# templates/dashboard/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}User Dashboard{% endblock %}
+
+{% block body %}
+<div class="row mt-5">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header">
+                Dashboard
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Welcome, {{ app.user.username }}!</h2>
+                <p class="card-text">Here you can manage your bookings.</p>
+                <hr>
+                <h5 class="mt-4">Upcoming Booking</h5>
+
+                {% if bookings %}
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Date</th>
+                                <th scope="col">Service</th>
+                                <th scope="col">Time</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ bookings.date ? bookings.date|date('Y-m-d') : '' }}</td>
+                                <td>{{ bookings.service.name }}</td>
+                                <td>{{ bookings.time ? bookings.time|date('H:i') : '' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                {% else %}
+                    <p class="text-center">No upcoming bookings found.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
