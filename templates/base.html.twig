@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}User Dashboard{% endblock %}</title>
     <link rel="icon" href="{{ asset('/images/istockphoto-1300694659-612x612.jpg') }}">
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -11,30 +12,30 @@
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#">
-            <img src="{{ asset('/images/istockphoto-1300694659-612x612.jpg') }}" style="width: 50px; height:50px;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+        <a class="navbar-brand" href="#" style="font-weight: 600; font-size: 1.3rem; color: #fff !important;">
+            <img src="{{ asset('/images/istockphoto-1300694659-612x612.jpg') }}" style="width: 50px; height:50px; border-radius: 50%; margin-right: 10px;">
             Jose Video Recording Studio 
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-         <div class="clock-container">
+        <div class="clock-container" style="color: #fff; font-weight: 500; margin: 0 20px;">
             <div id="clock"></div>
         </div>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_dashboard') }}"><i class="fa fa-home"><br>dashboard</i></a>
+                    <a class="nav-link" href="{{ path('app_dashboard') }}" style="color: #fff !important; margin: 0 10px; transition: 0.3s; border-radius: 5px; padding: 8px 12px !important;"><i class="fa fa-home"></i><br><small>dashboard</small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_bookings_index') }}"><i class="fa fa-book-open"><br>bookings</i></a>
+                    <a class="nav-link" href="{{ path('app_bookings_index') }}" style="color: #fff !important; margin: 0 10px; transition: 0.3s; border-radius: 5px; padding: 8px 12px !important;"><i class="fa fa-book-open"></i><br><small>bookings</small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_services') }}"><i class="fa fa-book"><br>services</i></a>
+                    <a class="nav-link" href="{{ path('app_services') }}" style="color: #fff !important; margin: 0 10px; transition: 0.3s; border-radius: 5px; padding: 8px 12px !important;"><i class="fa fa-book"></i><br><small>services</small></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('app_logout') }}"><i class="fa fa-power-off"><br>logout</i></a>
+                    <a class="nav-link" href="{{ path('app_logout') }}" style="color: #fff !important; margin: 0 10px; transition: 0.3s; border-radius: 5px; background-color: rgba(255,255,255,0.2); padding: 8px 12px !important;"><i class="fa fa-power-off"></i><br><small>logout</small></a>
                 </li>
             </ul>
         </div>
@@ -52,10 +53,9 @@
         {% block body %}{% endblock %}
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     {% block javascripts %}
         {% block importmap %}{{ importmap('app') }}{% endblock %}

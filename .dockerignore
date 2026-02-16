@@ -1,0 +1,18 @@
+# Exclude local dependencies
+vendor/
+node_modules/
+.env.local
+var/
+
+# Exclude build artifacts and logs
+var/cache/*
+var/log/*
+.phpunit.cache/
+
+# Exclude OS-specific files
+.DS_Store
+Thumbs.db
+
+# Exclude Git metadata
+.git/
+.gitignore
